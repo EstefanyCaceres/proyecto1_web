@@ -1,0 +1,63 @@
+<!-- Importamos la base -->
+{% extends "libros/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'libros/css/resultados.css' %}">
+<link rel="stylesheet" href="{% static 'libros/css/consultar_libros.css' %}">
+{% endblock extra_head %}
+
+{% block Titulo %} Resultados Busqueda {% endblock Titulo %}
+
+{% block encabezado %}
+{% if user.is_authenticated %}
+<div class="botones-header">
+    <a href="{% url 'menu' %}" class="btn-volver">Volver al Menú</a>
+    <a href="{% url 'logout' %}" class="btn-logout">Cerrar Sesión</a>
+</div>
+{% endif %}
+{% endblock encabezado %}
+
+<!-- Creamos el contenido de la pagina -->
+{% block content %}
+<div class="resultado">
+	<!-- Estos for e if imprimen la infomación de la base de datos de una manera organizada -->
+	<h2 class="librosde">Resultados de:&nbsp;&nbsp;&nbsp;<div>{{busqueda}}</div></h2>
+	<h3 class="librosde" id="div-element"></h3>
+
+	<div class="contene">
+        {% for libro in libros%}
+        <div class="libro-container">
+            <h2 class="libro-title">{{libro.titulo}}</h2>
+    
+            <p class="libro-meta">
+                Autor: {{libro.autor}} |
+                Editorial: {{libro.editorial}} |
+                Estado: {%if libro.disponible%}Disponible{%else%}Prestado{%endif%}
+            </p>
+    
+            {% if request.user.is_authenticated %}
+            <div class="libro-actions">
+				{% if libro.disponible %}
+                <a href="{% url 'realizar_prestamo' libro.id %}" class="btn-realizar-prestamo">Disponible</a>
+				{% else %}
+				<p class="pendiente">Prestado</p>
+				{% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {%empty%}
+        <p>No hay libros disponibles</p>
+        {% endfor %}
+    </div>
+	<!-- El boton para volver a la barra de busqueda -->
+	<a class="regrese" href="{% url 'index' %}"><i class="fa-solid fa-chevron-left"></i> Regresar</a>
+</div>
+
+<script>
+	let contenedor = document.getElementsByClassName("contene");
+	let contador = contenedor.length;
+	document.getElementById("div-element").innerHTML = "Resultados de la búsqueda: " + contador;
+</script>
+
+{% endblock content %}

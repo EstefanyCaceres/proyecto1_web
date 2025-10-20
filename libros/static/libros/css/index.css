@@ -1,0 +1,82 @@
+/* Pagina home.html */
+.classy form{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+.classy{
+    display: flex;
+    height: 80vh;
+    width: 70%;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0px auto;
+}
+.caja-busqueda{
+    width: 100%;
+    margin: 0px auto;
+    flex-direction: column;
+}
+.barra_busqueda{
+    background-color: #fff;
+    border-radius: 15px;
+}
+.barra_busqueda input{
+    border-radius: 15px;
+    border: none;
+    padding: 5px 12px;
+    width: 100%;
+}
+.barra_busqueda input:focus{
+    outline: none;
+}
+.barra_busqueda.active .contenedor-sugerencias {
+    opacity: 1;
+    pointer-events: auto;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+.barra_busqueda.active .contenedor-sugerencias li{
+    display: block;
+}
+.contenedor-sugerencias{
+    max-height: 280px;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+    overflow: hidden;
+    text-align: left;
+}
+.contenedor-sugerencias li{
+    list-style: none;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: none;
+}
+.contenedor-sugerencias li:hover{
+    background-color: rgb(182, 181, 181);
+}
+
+.boton_busqueda input{
+    border-radius: 10px;
+    border: none;
+}
+.boton_busqueda{
+    border: none;
+    background:rgb(255, 255, 255, 0.7);
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.boton_busqueda i{
+    font-size: 20px;
+    color: black;
+}
+.copy p{
+    margin: 0;
+} 

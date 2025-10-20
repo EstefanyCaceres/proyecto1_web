@@ -1,0 +1,72 @@
+<datalist id="sug_actualizar"></datalist>
+<datalist id="sug_eliminar"></datalist>
+<datalist id="sug_prestamo"></datalist>
+<datalist id="estudi"></datalist>
+
+<script>
+    var estu = document.getElementsByClassName('listestu');
+    var options = '';
+    for (var i = 0; i < estu.length; i++) {
+        options += '<option>' + estu[i].textContent + '</option>';
+    }
+    document.getElementById('listtemplate').innerHTML = options;
+
+    var search = document.querySelector('#myprod');
+    var results = document.querySelector('#estudi');
+    var templateContent_estu = document.querySelector('#listtemplate').content;
+    search.addEventListener('keyup', function handler(event) {
+        while (results.children.length) results.removeChild(results.firstChild);
+        var inputVal = new RegExp(search.value.trim(), 'i');
+        var set = Array.prototype.reduce.call(templateContent_estu.cloneNode(true).children, function searchFilter(frag, item, i) {
+            if (inputVal.test(item.value) && frag.children.length < 6) frag.appendChild(item);
+            return frag;
+        }, document.createDocumentFragment());
+        results.appendChild(set);
+    })
+
+
+    var codi = document.getElementsByClassName('listcodigo');
+    var optionss = '';
+    for (var i = 0; i < codi.length; i++) {
+        optionss += '<option>' + codi[i].textContent + '</option>';
+    }
+    document.getElementById('listtemplate_suge').innerHTML = optionss;
+
+    var search_codi = document.querySelector('#input_actualizar');
+    var results_codi = document.querySelector('#sug_actualizar');
+    var templateContent = document.querySelector('#listtemplate_suge').content;
+
+    search_codi.addEventListener('keyup', function handler(event) {
+        while (results_codi.children.length) results_codi.removeChild(results_codi.firstChild);
+        var inputVal = new RegExp(search_codi.value.trim(), 'i');
+        var set = Array.prototype.reduce.call(templateContent.cloneNode(true).children, function searchFilter(frag, item, i) {
+            if (inputVal.test(item.value) && frag.children.length < 6) frag.appendChild(item);
+            return frag;
+        }, document.createDocumentFragment());
+        results_codi.appendChild(set);
+    })
+
+    var search_elim = document.querySelector('#input_eliminar');
+    var results_elim = document.querySelector('#sug_eliminar');
+    search_elim.addEventListener('keyup', function handler(event) {
+        while (results_elim.children.length) results_elim.removeChild(results_elim.firstChild);
+        var inputVal = new RegExp(search_elim.value.trim(), 'i');
+        var set = Array.prototype.reduce.call(templateContent.cloneNode(true).children, function searchFilter(frag, item, i) {
+            if (inputVal.test(item.value) && frag.children.length < 6) frag.appendChild(item);
+            return frag;
+        }, document.createDocumentFragment());
+        results_elim.appendChild(set);
+    })
+
+    var search_pres = document.querySelector('#input_prestamo');
+    var results_pres = document.querySelector('#sug_prestamo');
+    search_pres.addEventListener('keyup', function handler(event) {
+        while (results_pres.children.length) results_pres.removeChild(results_pres.firstChild);
+        var inputVal = new RegExp(search_pres.value.trim(), 'i');
+        var set = Array.prototype.reduce.call(templateContent.cloneNode(true).children, function searchFilter(frag, item, i) {
+            if (inputVal.test(item.value) && frag.children.length < 6) frag.appendChild(item);
+            return frag;
+        }, document.createDocumentFragment());
+        results_pres.appendChild(set);
+    })
+</script>

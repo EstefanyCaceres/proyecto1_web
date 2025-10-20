@@ -1,0 +1,50 @@
+{% extends 'libros/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'libros/css/consultar_libros.css' %}">
+{% endblock extra_head %}
+
+{% block Titulo %} LIBROS {% endblock Titulo %}
+
+{% block encabezado %}
+{% if user.is_authenticated %}
+<div class="botones-header">
+    <a href="{% url 'menu' %}" class="btn-volver">Volver al Menú</a>
+    <a href="{% url 'logout' %}" class="btn-logout">Cerrar Sesión</a>
+</div>
+{% endif %}
+{% endblock encabezado %}
+
+{% block content %}
+
+    {%if request.user.is_staff or request.user.is_superuser%}
+    <div class="contene2">
+            <a href="{% url 'agregar_libro' %}" class="btn-realizar-prestamo">Agregar Libro</a>
+    </div>
+    {% endif %}
+
+    <div class="contene">
+        {% for libro in libros%}
+        <div class="libro-container">
+            <h2 class="libro-title">{{libro.titulo}}</h2>
+    
+            <p class="libro-meta">
+                Autor: {{libro.autor}} |
+                Editorial: {{libro.editorial}} |
+                Estado: {%if libro.disponible%}Disponible{%else%}Prestado{%endif%}
+            </p>
+    
+            {%if request.user.is_staff or request.user.is_superuser%}
+            <div class="libro-actions">
+                <a href="{% url 'eliminar_libro' libro.id %}" class="btn-realizar-prestamo">Eliminar</a>
+                <a href="{% url 'editar_libro' libro.id %}" class="btn-realizar-prestamo">Editar</a>
+            </div>
+            {% endif %}
+        </div>
+        {%empty%}
+        <p>No hay libros disponibles</p>
+        {% endfor %}
+    </div>
+    
+{% endblock content %}

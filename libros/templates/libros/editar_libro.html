@@ -1,0 +1,47 @@
+{% extends "libros/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'libros/css/realizar_prestamo.css' %}">
+{% endblock extra_head %}
+
+{% block Titulo %} Editar Libro {% endblock Titulo %}
+
+{% block encabezado %}
+{% if user.is_authenticated %}
+<div class="botones-header">
+    <a href="{% url 'menu' %}" class="btn-volver">Volver al Menú</a>
+    <a href="{% url 'logout' %}" class="btn-logout">Cerrar Sesión</a>
+</div>
+{% endif %}
+{% endblock encabezado %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Editar Libro</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="{{ form.titulo.id_for_label }}">{{ form.titulo.label }}:</label>
+            {{ form.titulo }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.autor.id_for_label }}">{{ form.autor.label }}:</label>
+            {{ form.autor }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.editorial.id_for_label }}">{{ form.editorial.label }}:</label>
+            {{ form.editorial }}
+        </div>
+
+
+        <button type="submit">Guardar Libro</button>
+    </form>
+</div>
+
+<a class="regrese" href="{% url 'libros' %}"><i class="fa-solid fa-chevron-left"></i> Regresar</a>
+
+{% endblock content %}

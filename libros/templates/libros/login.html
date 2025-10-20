@@ -1,0 +1,39 @@
+{% extends 'libros/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'libros/css/login.css' %}">
+{% endblock extra_head %}
+
+{% block Titulo %} INICIO DE SESIÓN {% endblock Titulo %}
+
+{% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div id="notification">
+                <div>{{ message }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form  method="POST" action="{%url 'login'%}">
+        {% csrf_token %}
+        <div class="sesion">
+            <h2>INGRESO</h2>
+    
+            <div class="inicie-sesion">
+                <input autocomplete="off" type="text" name="username" class="usi" placeholder="Ingrese su Usuario..." />
+            </div>
+    
+            <div class="inicie-sesion">
+                <input type="password" name="password" class="usi" placeholder="Ingrese su Contraseña..." />
+            </div>
+
+            <div class="inicie-sesion">
+                <button class="amnesia" type="submit">Iniciar Sesión</button>
+            </div>
+    
+        </div>
+    </form>
+{% endblock content %}

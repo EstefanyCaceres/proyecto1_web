@@ -1,0 +1,82 @@
+/* Adaptaciones a dispositivos moviles */
+@media(max-width: 689px){
+    header{
+        font-size: small;
+    }
+    h1{
+        line-height: 5vh;
+    }
+    .classy{
+        min-width: 100%;
+    }
+    form{
+        min-width: 100%;
+    }
+
+    section.menu{
+        flex-direction: column;
+    }
+    .classy .barra_busqueda input{
+        font-size: medium;
+    }
+    .menu .opciones{
+        width: 95%;
+        margin: 20px auto;
+    }
+    .menu .opciones .laopcion{
+        margin-bottom: 5px;
+        font-size: medium;
+    }
+    .menu .opciones #OA{
+        margin-top: 5px;
+    }
+    .menu .opciones #OE{
+        margin-top: 5px;
+    }
+    .menu .opciones .fuera{
+        font-size: medium;
+    }
+    .opci{
+        display: none;
+    }
+    .opciones .desple{
+        display: inline-block;
+        font-size: larger;
+    }
+    .opciones .desapare{
+        display: none;
+    }
+    .opciones .desaparece{
+        display: inline-block;
+    }
+    .menu .resopcion{
+        width: 95%;
+        height: 600px;
+        margin: 20px auto;
+    }
+    .resopcion .actualli{
+        grid-template-columns: 50% 50%;
+    }
+    .resopcion .actualli{
+        width: 90%;
+    }
+    #resanainven .conteanadir form{
+        width: 100%;
+    }
+    #reselminven .conteliminar form{
+        width: 100%;
+    }
+
+    section.resultado{
+        margin: 40px 2%;
+    }
+    section.resultado_autor{
+        margin: 40px 2%;
+        overflow: auto;
+    }
+
+    .contesesion .sesion{
+        margin: 130px 2% 132px 2%;
+    }
+}
+/* Fin de adaptaciones a dispositivos moviles */

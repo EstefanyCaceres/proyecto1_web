@@ -1,0 +1,34 @@
+h2{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 1%;
+}
+
+.menu-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.panel{
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    margin: 5%;
+    border-radius: 20px;
+}
+
+.boton{
+    color: black;
+    font-family: Sitka Banner;
+    text-decoration: none;
+}
+
+.boti{
+    font-size: 400%;
+}

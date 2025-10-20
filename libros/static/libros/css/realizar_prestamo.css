@@ -1,0 +1,73 @@
+.form-container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    font-weight: bold;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el checkbox y el texto */
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto; /* Evita que el checkbox ocupe toda la línea */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+
+.regrese {
+    display: inline-flex;               /* se adapta al contenido */
+    align-items: center;
+    gap: 8px;                           /* espacio entre ícono y texto */
+    margin: 20px 30px;
+    padding: 8px 14px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primario);
+    background-color: #ffffff;
+    border: 2px solid var(--primario);
+    border-radius: 8px;
+    text-decoration: none;              /* quita subrayado */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: fit-content;                 /* 🔹 se adapta al texto */
+}
+
+.regrese i {
+    font-size: 1rem;                    /* tamaño del ícono */
+}
+
+.regrese:hover {
+    background-color: var(--primario);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(-3px);        /* leve efecto de retroceso */
+}

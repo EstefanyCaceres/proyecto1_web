@@ -1,0 +1,155 @@
+/* El tipo de letra */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Colores a usar */
+:root {
+    --primario: #7e0a0a;
+}
+
+.none{display: none;}
+/* Principal de todas las paginas*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    background-repeat: no-repeat;
+    background-color: rgba(156, 124, 124, 0.61);
+    background-image: url(../img/Imagen_Biblioteca.jpg);
+    background-size: cover;
+    background-position: center;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    height: 12vh;
+    display: flex;
+    width: 100%;
+    background: var(--primario);
+    color: #ffffff;
+    border: none;
+}
+
+header .raya {
+    width: 1.4%;
+    background: var(--primario);
+}
+
+header .s {
+    background: #ffffff;
+    border: none;
+}
+
+footer .copy {
+    height: 8vh;
+    width: 96%;
+    color: white;
+    background-size: 15%;
+    display: flex;
+    line-height: 8vh
+}
+
+footer {
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    background-color: var(--primario);
+}
+
+h1 {
+    line-height: 12vh;
+    width: 100%;
+}
+
+.escudo{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    text-align: end;
+}
+.logo_colegio {
+    margin-left: auto;
+    display: block;
+    height: 90%;
+}
+
+.titulo {
+    font-family: Sitka Banner;
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+
+.Boton-imagen i{
+    font-size: 27px;
+}
+.Boton-imagen{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 2vh;
+    border-radius: 8px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+}
+.enlace-usuario{
+    color:black;
+}
+.enlace-usuario:hover{
+    color: var(--primario);
+}
+
+
+#notification {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    text-align: center;
+}
+#notification div {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.6);;
+    color: var(--primario);
+    padding: 10px 30px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px black;
+    font-size: 16px;
+}
+
+.botones-header {
+    display: flex;
+    align-items: center;
+    margin-right: 3vh;
+    gap: 15px;
+}
+
+.btn-volver,
+.btn-logout {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--primario);
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-volver:hover,
+.btn-logout:hover {
+    background-color: var(--primario);
+    color: white;
+}

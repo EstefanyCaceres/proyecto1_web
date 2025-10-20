@@ -1,0 +1,39 @@
+{% extends 'libros/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'libros/css/menu.css' %}">
+{% endblock extra_head %}
+
+{% block Titulo %} BIENVENIDO {% endblock Titulo %}
+
+{% block encabezado %}
+{% if user.is_authenticated %}
+<div class="botones-header">
+    <a href="{% url 'menu' %}" class="btn-volver">Volver al Menú</a>
+    <a href="{% url 'logout' %}" class="btn-logout">Cerrar Sesión</a>
+</div>
+{% endif %}
+{% endblock encabezado %}
+
+
+{% block content %}
+    <div class="menu-container">
+        <div class="panel">
+            {% if user.is_superuser or user.is_staff %}
+                <a href="{% url 'libros' %}" class="boton"><i class="fa-solid fa-book-open-reader boti"></i><br>Consultar Libros</a>
+            {% else %}
+                <a href="{% url 'index' %}" class="boton"><i class="fa-solid fa-book-open-reader boti"></i><br>Consultar Libros</a>
+            {% endif %}
+        </div>
+        <div class="panel">
+            <a href="{% url 'prestamos' %}" class="boton"><i class="fa-solid fa-file-lines boti"></i><br>Consultar Prestamos</a>
+
+        </div>
+        {% if user.is_superuser or user.is_staff %}
+        <div class="panel">
+            <a href="{% url 'admin:index' %}" class="boton"><i class="fa-solid fa-user-pen boti"></i><br>Usuarios</a>
+        </div>
+        {% endif %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Aqui estamos enlazando todo lo necesario para trabajar con la base de toda la pagina -->
+        <!-- Esto es por defecto -->
+        <title>Biblioteca</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Ponemos los Estilos Base-->
+        <link rel="stylesheet" href="{% static 'libros/css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'libros/css/responsive.css' %}">
+        <!-- Enlace con Favicon-->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+        {% block extra_head %}
+        {% endblock extra_head %}
+    </head>
+    <body>
+        <!-- Encabezado -->
+        <header>
+            <!-- Estas son las decoraciones del encabezado -->
+            <span class="raya"></span>
+            <span class="raya s"></span>
+            <span class="raya"></span>
+            <div class="titulo">
+                <h1><a href="{% url 'index' %}" style="color: white;"><i class="fa-sharp fa-solid fa-house"></i></a>   {% block Titulo %}  {% endblock Titulo %} </h1>
+            </div>
+
+            
+            
+            {% block encabezado %}
+            {% endblock encabezado %}
+        </header>
+        <!-- Aqui es donde se van colocando los distintos html para cada pagina -->
+        {% block content %}
+
+        {% endblock content %}
+
+        <footer>
+            <div class="copy">
+                <p class="copyright">&copy;  - Todos los derechos reservados</p>
+            </div>
+        </footer>
+        
+        
+        <script src="{% static 'libros/js/base.js' %}"></script>
+    </body>
+</html>

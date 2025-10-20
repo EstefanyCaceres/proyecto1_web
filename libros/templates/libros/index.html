@@ -1,0 +1,50 @@
+<!-- Importamos la base -->
+{% extends 'libros/base.html' %}
+{% load static %}
+
+<!-- Estilos -->
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'libros/css/index.css' %}">
+{% endblock extra_head %}
+
+{% block Titulo %} BIBLIOTECA {% endblock Titulo %}
+
+
+
+{% block encabezado %}
+    <button class="Boton-imagen" >
+        <a href="{% url 'login' %}" class="enlace-usuario"><i class="fa-solid fa-user-gear"></i></a>      
+    </button>
+{% endblock encabezado %}
+
+<!-- Creamos el contenido que tendra la pagina -->
+{%block content%}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div id="notification">
+                <div>{{ message }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="none">
+        <ul>
+            {% for titulo in titulos %} 
+                <li class="libro"> {{ titulo }} </li>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for autor in autores %}
+                <li class="autor"> {{ autor }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="classy">
+        {% include "libros/partials/_formBusqueda.html" %}
+    </div>
+    
+    <script src="{% static 'libros/js/suggestions.js' %}"></script>
+    <script src="{% static 'libros/js/main.js' %}"></script>
+{%endblock%}
