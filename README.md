@@ -3,4 +3,4 @@ BIBLIOTECA
 
 Integrantes: 
 Estefany Katerin Caceres Chanaga
--Joseph Felipe Rodriguez Bayona
+- Joseph Felipe Rodriguez Bayona
